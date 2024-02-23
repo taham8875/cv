@@ -3,16 +3,16 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Inter as FontSans } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
+import { RESUME_DATA } from "@/data/resume-data";
 
-export const fontSans = FontSans({
+const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
-  title: "Taha Ahmed | Full Stack Developer",
-  description:
-    "Hello, I’m Taha Ahmed, a passionate software engineer eager to apply my skills and knowledge in a professional environment. Currently seeking opportunities for internship, part-time or full-time positions to further enhance my practical experience.",
+  title: `${RESUME_DATA.name} | Resume`,
+  description: RESUME_DATA.about,
 };
 
 export default function RootLayout({
@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
